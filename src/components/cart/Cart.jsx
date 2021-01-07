@@ -11,7 +11,6 @@ const Cart = ({
   handleEmptyCart,
 }) => {
   const classes = useStyles();
-  console.log('cart render');
 
   const EmptyCart = () => (
     <Typography variant='subtitle1'>

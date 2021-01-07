@@ -10,7 +10,7 @@ import {
   Button,
   CssBaseline,
 } from '@material-ui/core';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { commerce } from '../../../lib/commerce';
 import useStyles from './styles';
 import AddressForm from '../AddressForm';
@@ -19,13 +19,10 @@ import PaymentForm from '../PaymentForm';
 const steps = ['Shipping address', 'Payment details'];
 
 const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
-  console.log('checkout render');
   const [activeStep, setActiveStep] = useState(0);
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [shippingData, setShippingData] = useState({});
-  const [isFinished, setIsFinished] = useState(false);
   const classes = useStyles();
-  const history = useHistory();
 
   useEffect(() => {
     const generateToken = async () => {
@@ -53,9 +50,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
   };
 
   const timeout = () => {
-    setTimeout(() => {
-      setIsFinished();
-    }, 3000);
+    setTimeout(() => {}, 3000);
   };
 
   let Confirmation = () =>
